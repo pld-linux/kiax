@@ -12,6 +12,7 @@ Source0:	http://dl.sourceforge.net/kiax/%{name}-%{version}.tar.bz2
 #BuildRequires:	iaxclient-devel
 BuildRequires:	qmake
 BuildRequires:	qt-devel
+BuildRequires:	qt-linguist
 URL:		http://kiax.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,6 +36,9 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %setup -q
 
 %build
+%configure \
+        --with-Qt-include-dir=%{_includedir}/qt \
+        --with-Qt-lib-dir=%{_libdir}
 %{__make}
 
 %install
