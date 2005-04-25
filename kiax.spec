@@ -1,4 +1,5 @@
 # TODO: use system's iaxclient instead of included one?
+# - optflags
 #
 Summary:	IAX2 protocol telephony client
 Summary(pl):	Klient protoko³u IAX2
@@ -36,10 +37,11 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %setup -q
 
 %build
-%configure \
-        --with-Qt-include-dir=%{_includedir}/qt \
-        --with-Qt-lib-dir=%{_libdir}
-%{__make}
+# not autoconf-generated
+./configure \
+	--prefix=%{_prefix}
+%{__make} \
+	QTDIR=/usr
 
 %install
 rm -rf $RPM_BUILD_ROOT
