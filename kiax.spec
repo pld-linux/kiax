@@ -10,6 +10,7 @@ License:	LGPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/kiax/%{name}-%{version}.tar.bz2
 # Source0-md5:	508f65e79f23155e50e6ca5684697221
+Patch0:		%{name}-iaxwrapper.patch
 #BuildRequires:	iaxclient-devel
 BuildRequires:	qmake
 BuildRequires:	qt-devel
@@ -35,6 +36,7 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 
 %prep
 %setup -q
+%patch0
 
 %build
 # not autoconf-generated
