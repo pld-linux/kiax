@@ -46,9 +46,11 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %install
 rm -rf $RPM_BUILD_ROOT
 
+%{__make} install \
+        DESTDIR=$RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
+%doc README
