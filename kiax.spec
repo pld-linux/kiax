@@ -45,12 +45,16 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/{icons,i18n}}
+install bin/kiax $RPM_BUILD_ROOT%{_bindir}
+install icons/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/icons
+install i18n/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
 
-%{__make} install \
-        DESTDIR=$RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README
+%attr(755,root,root) %{_bindir}/%{name}
+%{_datadir}/%{name}
+%doc CHANGELOG README
