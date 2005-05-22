@@ -1,16 +1,16 @@
 diff -urN kiax-0.8.4/kiax.desktop kiax-0.8.4.new/kiax.desktop
 --- kiax-0.8.4/kiax.desktop	2005-04-05 23:53:41.000000000 +0200
-+++ kiax-0.8.4.new/kiax.desktop	2005-05-22 11:38:05.000000000 +0200
-@@ -1,10 +1,13 @@
++++ kiax-0.8.4.new/kiax.desktop	2005-05-22 19:12:14.000000000 +0200
+@@ -1,10 +1,16 @@
  [Desktop Entry]
 -MimeType=application/x-kopete-emoticons;application/x-icq
 +Encoding=UTF-8
  Name=Kiax
--GenericName=IAX Softphone
--GenericName[bg]=IAX софгуерен телефон
+ GenericName=IAX Softphone
+ GenericName[bg]=IAX софгуерен телефон
++GenericName[pl]=Klient IAX
  Comment=VoIP solution using Asterics 
--Comment[bg]=VoIP решение използващо Asterics
-+Comment[bg]=VoIP ŃĐľŃĐľĐ˝Đ¸Đľ Đ¸ĐˇĐżĐžĐťĐˇĐ˛Đ°ŃĐž Asterics
+ Comment[bg]=VoIP решение използващо Asterics
 +Comment[pl]=Rozwiązanie VoIP używające Asteriksa
  Exec=kiax
 +Icon=kiax.png
