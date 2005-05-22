@@ -5,17 +5,19 @@ Summary:	IAX2 protocol telephony client
 Summary(pl):	Klient protoko³u IAX2
 Name:		kiax
 Version:	0.8.4
-Release:	0.1
-License:	LGPL
+Release:	0.2
+License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/kiax/%{name}-%{version}.tar.bz2
 # Source0-md5:	508f65e79f23155e50e6ca5684697221
+Source1:	%{name}.png
 Patch0:		%{name}-iaxwrapper.patch
+Patch1:		%{name}-desktop.patch
+URL:		http://kiax.sourceforge.net/
 #BuildRequires:	iaxclient-devel
 BuildRequires:	qmake
 BuildRequires:	qt-devel
 BuildRequires:	qt-linguist
-URL:		http://kiax.sourceforge.net
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,6 +39,7 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %prep
 %setup -q
 %patch0
+%patch1 -p1
 
 %build
 # not autoconf-generated
@@ -48,10 +51,13 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}/{icons,i18n}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 install bin/kiax $RPM_BUILD_ROOT%{_bindir}
 install icons/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/icons
 install i18n/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/i18n
+install kiax.desktop $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,3 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGELOG README
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
