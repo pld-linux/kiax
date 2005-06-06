@@ -1,0 +1,81 @@
+diff -Naur kiax-0.8.4/qkiax.pro kiax-0.8.4.oden/qkiax.pro
+--- kiax-0.8.4/qkiax.pro	2005-04-07 01:48:03.000000000 +0200
++++ kiax-0.8.4.oden/qkiax.pro	2005-04-15 09:31:09.114764393 +0200
+@@ -3,15 +3,14 @@
+ # Subdir relative project main directory: .
+ # Target is a subdirs project 
+ 
+-TARGETDEPS += lib/libiaxclient.a \
+-              src/../bin/kiax 
++TARGETDEPS += src/../bin/kiax 
+ CONFIG += release \
+           warn_on \
+           qt \
+           thread \
+           x11 
+ TEMPLATE = subdirs 
+-SUBDIRS += lib \
+-           i18n \
++SUBDIRS += i18n \
+            src  \
+ 	   bin
++LIBS += -liaxclient
+diff -Naur kiax-0.8.4/src/src.pro kiax-0.8.4.oden/src/src.pro
+--- kiax-0.8.4/src/src.pro	2005-04-13 16:22:46.000000000 +0200
++++ kiax-0.8.4.oden/src/src.pro	2005-04-15 09:34:29.139705198 +0200
+@@ -7,11 +7,11 @@
+             icons \
+             translations 
+ translations.files += ../i18n/*.qm 
+-translations.path = /usr/local/share/kiax/i18n/
++translations.path = /usr/share/kiax/i18n/
+ icons.files += ../icons/*.png 
+-icons.path = /usr/local/share/kiax/icons/
++icons.path = /usr/share/kiax/icons/
+ binary.files += ../bin/kiax 
+-binary.path = /usr/local/bin/
++binary.path = /usr/bin/
+ FORMS += aboutbox.ui \
+          logwindow.ui \
+          mainwindow.ui \
+@@ -64,12 +64,10 @@
+            kiaxcallrecord.cpp \
+            kiaxcallregister.cpp \
+            kiaxlogwindow.cpp 
+-TARGETDEPS += ../lib/libiaxclient.a 
+-LIBS += ../lib/libiaxclient.a 
+-INCLUDEPATH = ../src \
+-              ../lib 
+-DEFINES = ICONS_PATH=\"/usr/local/share/kiax/icons/\" \
+-          I18N_DIRECTORY=\"/usr/local/share/kiax/i18n/\" 
++LIBS += -liaxclient
++INCLUDEPATH = ../src /usr/include/iaxclient 
++DEFINES = ICONS_PATH=\"/usr/share/kiax/icons/\" \
++          I18N_DIRECTORY=\"/usr/share/kiax/i18n/\" 
+ TARGET = ../bin/kiax 
+ CONFIG += release \
+           warn_on \
+diff -Naur kiax-0.8.4/src/src.pro.or kiax-0.8.4.oden/src/src.pro.or
+--- kiax-0.8.4/src/src.pro.or	2005-04-07 00:31:02.000000000 +0200
++++ kiax-0.8.4.oden/src/src.pro.or	2005-04-15 09:34:45.012865146 +0200
+@@ -64,10 +64,8 @@
+            kiaxcallrecord.cpp \
+            kiaxcallregister.cpp \
+            kiaxlogwindow.cpp 
+-TARGETDEPS += ../lib/libiaxclient.a 
+-LIBS += ../lib/libiaxclient.a 
+-INCLUDEPATH = ../src \
+-              ../lib 
++LIBS += -liaxclient
++INCLUDEPATH = ../src /usr/include/iaxclient
+ DEFINES = ICONS_PATH=\"./icons/\" \
+           I18N_DIRECTORY=\"./i18n/\" 
+ TARGET = ../bin/kiax 
+@@ -76,6 +74,7 @@
+           qt \
+           thread \
+           x11 
++
+ prefswindow.ui.commands = $$IDL_COMPILER $$IDL_OPTIONS $$prefswindow.ui.target 
+ prefswindow.ui.target = prefswindow.ui 
+ calltab.ui.commands = $$IDL_COMPILER $$IDL_OPTIONS $$calltab.ui.target 
