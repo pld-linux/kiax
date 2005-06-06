@@ -19,6 +19,7 @@ URL:		http://kiax.sourceforge.net/
 BuildRequires:	qmake
 BuildRequires:	qt-devel
 BuildRequires:	qt-linguist
+BuildRequires:	iaxclient-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
