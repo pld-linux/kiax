@@ -5,7 +5,7 @@ Summary:	IAX2 protocol telephony client
 Summary(pl):	Klient protoko³u IAX2
 Name:		kiax
 Version:	0.8.4
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/kiax/%{name}-%{version}.tar.bz2
@@ -13,6 +13,7 @@ Source0:	http://dl.sourceforge.net/kiax/%{name}-%{version}.tar.bz2
 Source1:	%{name}.png
 Patch0:		%{name}-iaxwrapper.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-system_iaxclient_libs.diff
 URL:		http://kiax.sourceforge.net/
 #BuildRequires:	iaxclient-devel
 BuildRequires:	qmake
@@ -40,6 +41,7 @@ graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
 %setup -q
 %patch0
 %patch1 -p1
+%patch2 -p1
 
 %build
 # not autoconf-generated
