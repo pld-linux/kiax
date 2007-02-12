@@ -2,7 +2,7 @@
 # - optflags
 #
 Summary:	IAX2 protocol telephony client
-Summary(pl):	Klient protoko³u IAX2
+Summary(pl.UTF-8):   Klient protokoÅ‚u IAX2
 Name:		kiax
 Version:	0.8.4
 Release:	2
@@ -31,12 +31,12 @@ interface and desktop integration for calling, contact list, call
 register management and easy configuration. That is - a simple to use
 IAX Client
 
-%description -l pl
+%description -l pl.UTF-8
 Czym jest Kiax? - Kiax jest klientem IAX (tak zwanym programowym
-telefonem) pozwalaj±cym u¿ytkownikom PC wykonywaæ zwyk³e po³±czenia
-VoIP do serwerów Asteriska tak, jakby dzia³o siê to ze sprzêtowymi
-telefonami. Celem pakietu jest prosty i przyjazny dla u¿ytkownika
-graficzny interfejs. To jest - prosty do u¿ycia klient IAX.
+telefonem) pozwalajÄ…cym uÅ¼ytkownikom PC wykonywaÄ‡ zwykÅ‚e poÅ‚Ä…czenia
+VoIP do serwerÃ³w Asteriska tak, jakby dziaÅ‚o siÄ™ to ze sprzÄ™towymi
+telefonami. Celem pakietu jest prosty i przyjazny dla uÅ¼ytkownika
+graficzny interfejs. To jest - prosty do uÅ¼ycia klient IAX.
 
 %prep
 %setup -q
