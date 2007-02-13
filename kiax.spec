@@ -2,7 +2,7 @@
 # - optflags
 #
 Summary:	IAX2 protocol telephony client
-Summary(pl.UTF-8):   Klient protokołu IAX2
+Summary(pl.UTF-8):	Klient protokołu IAX2
 Name:		kiax
 Version:	0.8.5
 Release:	2
